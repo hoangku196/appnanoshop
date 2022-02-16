@@ -1,16 +1,23 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:nanoshop_app/animations/ease_out_from_bottom_animation.dart';
-import 'package:nanoshop_app/animations/ease_out_from_left_animation.dart';
 import 'package:nanoshop_app/animations/ease_out_from_right_animation.dart';
-import 'package:nanoshop_app/screens/home_screen/page/home_page/widget/home_page_app_bar.dart';
-import 'package:nanoshop_app/screens/home_screen/page/home_page/widget/title_with_route_container.dart';
+import 'package:nanoshop_app/screens/home_screen/page/home_page/widgets/home_page_app_bar.dart';
+import 'package:nanoshop_app/screens/home_screen/page/home_page/widgets/hot_item_product_list_tile.dart';
+import 'package:nanoshop_app/screens/home_screen/page/home_page/widgets/product_grid_tile.dart';
+import 'package:nanoshop_app/screens/home_screen/page/home_page/widgets/title_with_route_container.dart';
+import 'package:nanoshop_app/screens/starter_screen/widgets/indicator_page_view.dart';
+import 'package:nanoshop_app/utils/assets_source/assets_source.dart';
 import 'package:nanoshop_app/utils/dummy_data/dummy_category.dart';
+import 'package:nanoshop_app/utils/dummy_data/dummy_product.dart';
 import 'package:nanoshop_app/utils/style/app_color.dart';
 import 'package:nanoshop_app/utils/style/text_style_app.dart';
+import 'package:nanoshop_app/widgets/buttons/button_with_center_title.dart';
 import 'package:nanoshop_app/widgets/margins/main_margin.dart';
 import 'package:nanoshop_app/widgets/margins/margin_bottom10.dart';
 import 'package:nanoshop_app/widgets/margins/margin_bottom20.dart';
 import 'package:nanoshop_app/widgets/slider_image/main_slider_image.dart';
+import 'package:staggered_grid_view_flutter/widgets/staggered_grid_view.dart';
+import 'package:staggered_grid_view_flutter/widgets/staggered_tile.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -30,7 +37,37 @@ class _HomePageState extends State<HomePage> {
             MarginBottom10(
               child: MainSliderImage(),
             ),
-            CategoryFragment(),
+            MarginBottom10(
+              child: CategoryFragment(),
+            ),
+            MarginBottom10(
+              child: HotProductFragment(),
+            ),
+            MarginBottom10(
+              child: MainMargin(
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  child: Image.asset(
+                    AssetsSource.bannerHomePage,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+            ),
+            MarginBottom10(
+              child: ProductFragment(),
+            ),
+            MarginBottom10(
+              child: MainMargin(
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  child: Image.asset(
+                    AssetsSource.bannerHomePage,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),
@@ -38,6 +75,7 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
+// Danh mục
 class CategoryFragment extends StatelessWidget {
   const CategoryFragment({Key? key}) : super(key: key);
 
@@ -131,6 +169,161 @@ class CategoryFragment extends StatelessWidget {
               ],
             ),
           ),
+        ),
+      ],
+    );
+  }
+}
+
+// Sản phẩm mới
+class HotProductFragment extends StatelessWidget {
+  const HotProductFragment({Key? key}) : super(key: key);
+
+  Widget containerTitle({required BuildContext context}) {
+    return Stack(
+      children: [
+        Container(
+          child: Image.asset(
+            AssetsSource.containerHotItem,
+            fit: BoxFit.cover,
+            width: MediaQuery.of(context).size.width,
+            height: 70,
+          ),
+        ),
+        Positioned(
+          top: 0,
+          bottom: 0,
+          left: 20,
+          right: 20,
+          child: Container(
+            padding: const EdgeInsets.symmetric(vertical: 10),
+            decoration: BoxDecoration(
+              color: color5,
+              borderRadius: BorderRadius.circular(50),
+              border: Border.all(
+                color: color9,
+                width: 10,
+              ),
+            ),
+            child: Center(
+              child: Text(
+                'Sản phẩm mới'.toUpperCase(),
+                style: textStyle5,
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 500,
+      child: Stack(
+        children: [
+          Positioned(
+            top: 33,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            child: Container(
+              color: color5,
+            ),
+          ),
+          containerTitle(context: context),
+          Positioned(
+            top: 100,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            child: Column(
+              children: [
+                Container(
+                  height: 350,
+                  child: ListView.builder(
+                    physics: BouncingScrollPhysics(),
+                    itemCount: dummyProduct.getRange(0, 5).length,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) {
+                      return EaseOutFromRightAnimation(
+                        delay: 0.5,
+                        child: HotItemProductListTile(
+                          model: dummyProduct[index],
+                        ),
+                      );
+                    },
+                  ),
+                ),
+                Expanded(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: List.generate(
+                      3,
+                      (index) {
+                        return IndicatorPageView(
+                          height: 4,
+                          isActive: false,
+                          onTap: () {
+                            // if (_indexPage != index) {
+                            //   // _pageController.animateToPage(index,
+                            //   //     duration: Duration(milliseconds: 1000),
+                            //   //     curve: Curves.fastOutSlowIn);
+                            // }
+                          },
+                        );
+                      },
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class ProductFragment extends StatelessWidget {
+  const ProductFragment({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        MainMargin(
+          child: MarginBottom10(
+            child: TitleWithRouteContainer(
+              route: '',
+              title: 'Sản phẩm',
+            ),
+          ),
+        ),
+        MarginBottom10(
+          child: MainMargin(
+            child: StaggeredGridView.count(
+              staggeredTiles: dummyProduct
+                  .map<StaggeredTile>((_) => StaggeredTile.fit(1))
+                  .toList(),
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+              crossAxisCount: 2,
+              crossAxisSpacing: 15.0,
+              mainAxisSpacing: 15.0,
+              children: dummyProduct
+                  .map(
+                    (e) => ProductGridTile(model: e),
+                  )
+                  .toList(),
+            ),
+          ),
+        ),
+        Container(
+          margin: EdgeInsets.symmetric(
+              horizontal: MediaQuery.of(context).size.width / 4),
+          child: ButtonWithCenterTitle(title: 'Xem thêm'),
         ),
       ],
     );

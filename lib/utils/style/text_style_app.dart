@@ -26,3 +26,15 @@ final TextStyle textStyle4 = GoogleFonts.nunito(
   fontSize: 12,
   color: color7,
 );
+
+final TextStyle textStyle5 = GoogleFonts.nunito(
+  fontWeight: FontWeight.w900,
+  fontSize: 23,
+  color: Colors.white,
+);
+
+final TextStyle textStyle6 = GoogleFonts.nunito(
+  fontWeight: FontWeight.w600,
+  fontSize: 14,
+  color: color12,
+);

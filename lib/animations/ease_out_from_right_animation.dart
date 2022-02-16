@@ -18,7 +18,7 @@ class EaseOutFromRightAnimation extends StatelessWidget {
       delay: Duration(milliseconds: (500 * delay).round()),
       duration: Duration(seconds: 1),
       curve: Curves.easeOut,
-      tween: Tween<double>(begin: 100.0, end: 0.0),
+      tween: Tween<double>(begin: 150.0, end: 0.0),
       child: child,
       builder: (context, child, value) => Transform.translate(
         offset: Offset(value, 0),

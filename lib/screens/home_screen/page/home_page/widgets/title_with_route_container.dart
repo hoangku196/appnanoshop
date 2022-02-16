@@ -19,8 +19,10 @@ class TitleWithRouteContainer extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          title,
-          style: textStyle3,
+          title.toUpperCase(),
+          style: textStyle3.copyWith(
+            color: color5,
+          ),
         ),
         Text(
           'Xem tất cả',

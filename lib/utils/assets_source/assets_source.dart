@@ -2,6 +2,7 @@ class AssetsSource {
   static const facebookIcon = 'assets/images/facebook_icon.png';
   static const googleIcon = 'assets/images/google_icon.png';
   static const appIcon = 'assets/images/app_icon.png';
+  static const tagIcon = 'assets/images/tag_icon.png';
   static const bottomIconAccount = 'assets/images/bottom_navigation_bar_icon/account_icon.png';
   static const bottomIconHome = 'assets/images/bottom_navigation_bar_icon/home_icon.png';
   static const bottomIconNews = 'assets/images/bottom_navigation_bar_icon/news_icon.png';
@@ -12,4 +13,19 @@ class AssetsSource {
   static const appBarIconSearch = 'assets/images/app_bar_icon/search_icon.png';
   static const dummyImage = 'assets/images/dummy_image.png';
   static const dummyCategory = 'assets/images/dummy_category.png';
+  static const containerHotItem = 'assets/images/container_hot_item.png';
+  static const bannerHomePage = 'assets/images/banner_home_page.png';
+  static const clockIcon = 'assets/images/image_icon/clock_icon.png';
+  static const favouriteIcon = 'assets/images/image_icon/favourite_icon.png';
+  static const messageIcon = 'assets/images/image_icon/message_icon.png';
+  static const shareIcon = 'assets/images/image_icon/share_icon.png';
+  static const subtractAccountImage = 'assets/images/subtract_account_image.png';
+  static const accountPageIconBell = 'assets/images/account_page_icon/bell_icon.png';
+  static const accountPageIconCar = 'assets/images/account_page_icon/car_icon.png';
+  static const accountPageIconFile = 'assets/images/account_page_icon/file_icon.png';
+  static const accountPageIconHelp = 'assets/images/account_page_icon/help_icon.png';
+  static const accountPageIconLogout = 'assets/images/account_page_icon/log_out_icon.png';
+  static const accountPageIconUnlock = 'assets/images/account_page_icon/unlock_icon.png';
+  static const accountPageIconUser = 'assets/images/account_page_icon/user_icon.png';
+  static const accountPageIconFavourite = 'assets/images/account_page_icon/favourite_icon.png';
 }

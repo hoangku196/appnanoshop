@@ -14,12 +14,13 @@ class StarterScreen extends StatefulWidget {
   _StarterScreenState createState() => _StarterScreenState();
 }
 
-class _StarterScreenState extends State<StarterScreen> {
+class _StarterScreenState extends State<StarterScreen>
+    with TickerProviderStateMixin {
   late PageController _pageController;
 
   final _initialPage = 0;
 
-  List<Widget> _page = [
+  late final List<Widget> _page = [
     Image.asset(
       'assets/images/demo_anh_1.png',
       fit: BoxFit.cover,
