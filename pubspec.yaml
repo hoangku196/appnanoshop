@@ -39,6 +39,8 @@ dependencies:
   carousel_slider: ^4.0.0
   dotted_border: ^2.0.0+2
   staggered_grid_view_flutter: ^0.0.4
+  intl: ^0.17.0
+  equatable: ^2.0.3
 
 dev_dependencies:
   flutter_test:
@@ -75,6 +77,7 @@ flutter:
     - assets/images/app_bar_icon/
     - assets/images/image_icon/
     - assets/images/account_page_icon/
+    - assets/images/menu_icon/
 
   # To add assets to your application, add an assets section, like this:
   # assets:

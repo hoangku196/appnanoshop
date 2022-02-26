@@ -14,3 +14,8 @@ const color11 = Color(0xff333333);
 const color12 = Color(0xff4F4F4F);
 const color13 = Color(0xff828282);
 const color14 = Color(0xffEDFAF7);
+const color15 = Color.fromRGBO(230, 242, 239, 1);
+const color16 = Color.fromRGBO(237, 250, 247, 1);
+const color17 = Color(0xffF5B462);
+
+

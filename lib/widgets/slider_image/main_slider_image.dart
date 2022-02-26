@@ -5,7 +5,12 @@ import 'package:nanoshop_app/utils/dummy_data/dummy_image.dart';
 import 'package:nanoshop_app/widgets/margins/margin_bottom10.dart';
 
 class MainSliderImage extends StatefulWidget {
-  const MainSliderImage({Key? key}) : super(key: key);
+  final BorderRadius borderRadius;
+
+  const MainSliderImage({
+    Key? key,
+    this.borderRadius = BorderRadius.zero,
+  }) : super(key: key);
 
   @override
   _MainSliderImageState createState() => _MainSliderImageState();
@@ -21,30 +26,35 @@ class _MainSliderImageState extends State<MainSliderImage> {
     return Column(
       children: [
         MarginBottom10(
-          child: CarouselSlider(
-            carouselController: _carouselController,
-            options: CarouselOptions(
-              onPageChanged: (index, _) {
-                _indexPage = index;
-                setState(() {});
-              },
-              autoPlay: true,
-              enlargeCenterPage: true,
-              viewportFraction: 1,
-              aspectRatio: 2.0,
-              initialPage: 0,
+          child: Container(
+            child: CarouselSlider(
+              carouselController: _carouselController,
+              options: CarouselOptions(
+                onPageChanged: (index, _) {
+                  _indexPage = index;
+                  setState(() {});
+                },
+                autoPlay: true,
+                enlargeCenterPage: true,
+                viewportFraction: 1,
+                aspectRatio: 2.0,
+                initialPage: 0,
+              ),
+              items: dummyImage.map(
+                (e) {
+                  return ClipRRect(
+                    borderRadius: widget.borderRadius,
+                    child: Container(
+                      width: MediaQuery.of(context).size.width,
+                      child: Image.asset(
+                        e.url,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  );
+                },
+              ).toList(),
             ),
-            items: dummyImage.map(
-              (e) {
-                return Container(
-                  width: MediaQuery.of(context).size.width,
-                  child: Image.asset(
-                    e.url,
-                    fit: BoxFit.cover,
-                  ),
-                );
-              },
-            ).toList(),
           ),
         ),
         Row(

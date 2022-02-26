@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:nanoshop_app/utils/style/app_color.dart';
 import 'package:nanoshop_app/utils/style/text_style_app.dart';
 import 'package:nanoshop_app/widgets/margins/margin_bottom20.dart';
@@ -24,10 +25,15 @@ class TitleWithRouteContainer extends StatelessWidget {
             color: color5,
           ),
         ),
-        Text(
-          'Xem tất cả',
-          style: textStyle2.copyWith(
-            color: color1,
+        InkWell(
+          onTap: (){
+            Get.toNamed(route);
+          },
+          child: Text(
+            'Xem tất cả',
+            style: textStyle2.copyWith(
+              color: color1,
+            ),
           ),
         ),
       ],

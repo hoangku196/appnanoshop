@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:nanoshop_app/helpers/helper_function.dart';
 import 'package:nanoshop_app/utils/style/app_color.dart';
 import 'package:nanoshop_app/utils/style/text_style_app.dart';
 import 'package:nanoshop_app/widgets/favourite_icon_widget/favourite_icon_widget.dart';
@@ -37,7 +38,7 @@ class ProductGridTile extends StatelessWidget {
             MarginBottom10(
               child: Text(
                 model.title,
-                maxLines: 2,
+                maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 style: textStyle2.copyWith(
                   color: color5,
@@ -46,7 +47,7 @@ class ProductGridTile extends StatelessWidget {
             ),
             MarginBottom10(
               child: Text(
-                model.price.toString(),
+                HelperFunction.convertPrice(model.price),
                 overflow: TextOverflow.ellipsis,
                 textAlign: TextAlign.start,
                 maxLines: 1,
@@ -58,7 +59,7 @@ class ProductGridTile extends StatelessWidget {
             ),
             MarginBottom10(
               child: Text(
-                model.priceSale.toString(),
+                HelperFunction.convertPrice(model.priceSale),
                 overflow: TextOverflow.ellipsis,
                 maxLines: 1,
                 textAlign: TextAlign.end,

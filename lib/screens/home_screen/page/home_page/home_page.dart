@@ -9,6 +9,7 @@ import 'package:nanoshop_app/screens/starter_screen/widgets/indicator_page_view.
 import 'package:nanoshop_app/utils/assets_source/assets_source.dart';
 import 'package:nanoshop_app/utils/dummy_data/dummy_category.dart';
 import 'package:nanoshop_app/utils/dummy_data/dummy_product.dart';
+import 'package:nanoshop_app/utils/router/router_app.dart';
 import 'package:nanoshop_app/utils/style/app_color.dart';
 import 'package:nanoshop_app/utils/style/text_style_app.dart';
 import 'package:nanoshop_app/widgets/buttons/button_with_center_title.dart';
@@ -145,7 +146,7 @@ class CategoryFragment extends StatelessWidget {
         MainMargin(
           child: MarginBottom10(
             child: TitleWithRouteContainer(
-              route: '',
+              route: RouterApp.categoryFragment,
               title: 'Danh mục',
             ),
           ),
@@ -296,7 +297,7 @@ class ProductFragment extends StatelessWidget {
         MainMargin(
           child: MarginBottom10(
             child: TitleWithRouteContainer(
-              route: '',
+              route: RouterApp.listProductScreen,
               title: 'Sản phẩm',
             ),
           ),

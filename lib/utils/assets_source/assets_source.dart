@@ -19,6 +19,10 @@ class AssetsSource {
   static const favouriteIcon = 'assets/images/image_icon/favourite_icon.png';
   static const messageIcon = 'assets/images/image_icon/message_icon.png';
   static const shareIcon = 'assets/images/image_icon/share_icon.png';
+  static const minimizedIcon = 'assets/images/image_icon/minimized_icon.png';
+  static const addIcon = 'assets/images/image_icon/add_icon.png';
+  static const filterIcon = 'assets/images/image_icon/filter_icon.png';
+  static const shortIcon = 'assets/images/image_icon/short_icon.png';
   static const subtractAccountImage = 'assets/images/subtract_account_image.png';
   static const accountPageIconBell = 'assets/images/account_page_icon/bell_icon.png';
   static const accountPageIconCar = 'assets/images/account_page_icon/car_icon.png';
@@ -28,4 +32,10 @@ class AssetsSource {
   static const accountPageIconUnlock = 'assets/images/account_page_icon/unlock_icon.png';
   static const accountPageIconUser = 'assets/images/account_page_icon/user_icon.png';
   static const accountPageIconFavourite = 'assets/images/account_page_icon/favourite_icon.png';
+  static const attentionMenuIcon = 'assets/images/menu_icon/attention_icon.png';
+  static const walletMenuIcon = 'assets/images/menu_icon/wallet_icon.png';
+  static const cartMenuIcon = 'assets/images/menu_icon/cart_icon.png';
+  static const fileMenuIcon = 'assets/images/menu_icon/file_icon.png';
+  static const notificationMenuIcon = 'assets/images/menu_icon/notification_icon.png';
+  static const phoneMenuIcon = 'assets/images/menu_icon/phone_icon.png';
 }
