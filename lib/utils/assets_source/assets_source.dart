@@ -38,4 +38,11 @@ class AssetsSource {
   static const fileMenuIcon = 'assets/images/menu_icon/file_icon.png';
   static const notificationMenuIcon = 'assets/images/menu_icon/notification_icon.png';
   static const phoneMenuIcon = 'assets/images/menu_icon/phone_icon.png';
+  static const insureDetailProductIcon = 'assets/images/detail_product_icon/insure_icon.png';
+  static const gmailDetailProductIcon = 'assets/images/detail_product_icon/gmail_icon.png';
+  static const messengerDetailProductIcon = 'assets/images/detail_product_icon/messenger_icon.png';
+  static const pinterestDetailProductIcon = 'assets/images/detail_product_icon/pinterest_icon.png';
+  static const twitterDetailProductIcon = 'assets/images/detail_product_icon/twitter_icon.png';
+  static const messageToolbarComment = 'assets/images/toolbar_icon/message_icon.png';
+  static const likeToolbarComment = 'assets/images/toolbar_icon/like_icon.png';
 }

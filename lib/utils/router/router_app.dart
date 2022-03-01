@@ -1,11 +1,11 @@
 class RouterApp {
-  static final String starterScreen = "/staterScreen";
-  static final String beforeLoginScreen = "/beforeLoginScreen";
-  static final String loginScreen = "/logIn";
-  static final String signInScreen = "/signIn";
-  static final String homeScreen = "/homeScreen";
-  static final String categoryFragment = "/categoryFragment";
-  static final String searchProductFragment = "/searchProductFragment";
-  static final String listProductScreen = "/listProductScreen";
-  static final String menuScreen = "/menuScreen";
+  static const String starterScreen = "/staterScreen";
+  static const String beforeLoginScreen = "/beforeLoginScreen";
+  static const String loginScreen = "/logIn";
+  static const String signInScreen = "/signIn";
+  static const String homeScreen = "/homeScreen";
+  static const String categoryFragment = "/categoryFragment";
+  // static const String searchProductFragment = "/searchProductFragment";
+  static const String listProductScreen = "/listProductScreen";
+  // static const String menuScreen = "/menuScreen";
 }

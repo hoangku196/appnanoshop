@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:nanoshop_app/utils/dummy_data/dummy_menu.dart';
+import 'package:nanoshop_app/utils/global_key/global_key_app.dart';
+import 'package:nanoshop_app/utils/router/home_page_router.dart';
 import 'package:nanoshop_app/utils/router/router_app.dart';
 import 'package:nanoshop_app/utils/style/app_color.dart';
 import 'package:nanoshop_app/utils/style/text_style_app.dart';
@@ -96,51 +98,51 @@ class MenuScreen extends StatelessWidget {
         centerTitle: true,
         backgroundColor: color5,
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Container(
-              margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(5),
-              ),
-              child: TextField(
-                onTap: () {
-                  Get.toNamed(RouterApp.searchProductFragment);
-                },
-                readOnly: true,
-                decoration: InputDecoration(
-                  hintStyle: textStyle2.copyWith(
-                    color: color13,
-                  ),
-                  hintText: "Từ khóa tìm kiếm...",
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide.none,
+      body: Column(
+        children: [
+          Container(
+            margin: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(5),
+            ),
+            child: TextField(
+              onTap: () {
+                Get.toNamed(HomePageRouter.search, id: GlobalKeyApp.idHomeAppNav);
+              },
+              readOnly: true,
+              decoration: InputDecoration(
+                hintStyle: textStyle2.copyWith(
+                  color: color13,
+                ),
+                hintText: "Từ khóa tìm kiếm...",
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide.none,
+                  borderRadius: BorderRadius.circular(5),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide.none,
+                  borderRadius: BorderRadius.circular(5),
+                ),
+                suffixIcon: Container(
+                  height: 40,
+                  width: 40,
+                  margin: EdgeInsets.all(5),
+                  decoration: BoxDecoration(
+                    color: color1,
                     borderRadius: BorderRadius.circular(5),
                   ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide.none,
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                  suffixIcon: Container(
-                    height: 40,
-                    width: 40,
-                    margin: EdgeInsets.all(5),
-                    decoration: BoxDecoration(
-                      color: color1,
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                    alignment: Alignment.center,
-                    child: Icon(
-                      CupertinoIcons.search,
-                      color: Colors.white,
-                    ),
+                  alignment: Alignment.center,
+                  child: Icon(
+                    CupertinoIcons.search,
+                    color: Colors.white,
                   ),
                 ),
               ),
             ),
-            GridView(
+          ),
+          Expanded(
+            child: GridView(
               shrinkWrap: true,
               padding: EdgeInsets.all(15),
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -157,8 +159,8 @@ class MenuScreen extends StatelessWidget {
                   )
                   .toList(),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

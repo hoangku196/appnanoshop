@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:nanoshop_app/animations/ease_out_from_right_animation.dart';
+import 'package:nanoshop_app/screens/detail_product_screen/arguments/detail_product_argument_screen.dart';
 import 'package:nanoshop_app/screens/home_screen/page/home_page/widgets/home_page_app_bar.dart';
 import 'package:nanoshop_app/screens/home_screen/page/home_page/widgets/hot_item_product_list_tile.dart';
 import 'package:nanoshop_app/screens/home_screen/page/home_page/widgets/product_grid_tile.dart';
@@ -9,6 +11,7 @@ import 'package:nanoshop_app/screens/starter_screen/widgets/indicator_page_view.
 import 'package:nanoshop_app/utils/assets_source/assets_source.dart';
 import 'package:nanoshop_app/utils/dummy_data/dummy_category.dart';
 import 'package:nanoshop_app/utils/dummy_data/dummy_product.dart';
+import 'package:nanoshop_app/utils/router/home_page_router.dart';
 import 'package:nanoshop_app/utils/router/router_app.dart';
 import 'package:nanoshop_app/utils/style/app_color.dart';
 import 'package:nanoshop_app/utils/style/text_style_app.dart';
@@ -21,7 +24,12 @@ import 'package:staggered_grid_view_flutter/widgets/staggered_grid_view.dart';
 import 'package:staggered_grid_view_flutter/widgets/staggered_tile.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  final dynamic idRoute;
+
+  const HomePage({
+    Key? key,
+    required this.idRoute,
+  }) : super(key: key);
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -42,7 +50,9 @@ class _HomePageState extends State<HomePage> {
               child: CategoryFragment(),
             ),
             MarginBottom10(
-              child: HotProductFragment(),
+              child: HotProductFragment(
+                  idRoute: widget.idRoute,
+              ),
             ),
             MarginBottom10(
               child: MainMargin(
@@ -68,6 +78,9 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
+            ),
+            SizedBox(
+              height: 100,
             ),
           ],
         ),
@@ -146,7 +159,7 @@ class CategoryFragment extends StatelessWidget {
         MainMargin(
           child: MarginBottom10(
             child: TitleWithRouteContainer(
-              route: RouterApp.categoryFragment,
+              route: HomePageRouter.category,
               title: 'Danh mục',
             ),
           ),
@@ -178,7 +191,12 @@ class CategoryFragment extends StatelessWidget {
 
 // Sản phẩm mới
 class HotProductFragment extends StatelessWidget {
-  const HotProductFragment({Key? key}) : super(key: key);
+  final dynamic idRoute;
+
+  const HotProductFragment({
+    Key? key,
+    this.idRoute,
+  }) : super(key: key);
 
   Widget containerTitle({required BuildContext context}) {
     return Stack(
@@ -252,6 +270,15 @@ class HotProductFragment extends StatelessWidget {
                         delay: 0.5,
                         child: HotItemProductListTile(
                           model: dummyProduct[index],
+                          onTap: () {
+                            Get.toNamed(
+                              HomePageRouter.detail,
+                              id: idRoute,
+                              arguments: DetailProductArgumentScreen(
+                                model: dummyProduct[index],
+                              ),
+                            );
+                          },
                         ),
                       );
                     },

@@ -1,6 +1,8 @@
 import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:nanoshop_app/providers/navigation_bar_provider.dart';
+import 'package:nanoshop_app/utils/global_key/global_key_app.dart';
 import 'package:nanoshop_app/utils/style/app_color.dart';
 import 'package:nanoshop_app/utils/style/text_style_app.dart';
 import 'package:provider/provider.dart';
@@ -27,6 +29,12 @@ class HomeBottomNavigationBar extends StatelessWidget {
                   onTap: () {
                     if (_model.currentTab != e.index)
                       _model.setCurrentTab(e.index);
+                    if (_model.currentTab == 0) {
+                      try {
+                        Get.keys[GlobalKeyApp.idHomeAppNav]!.currentState!
+                            .maybePop();
+                      } catch (e) {}
+                    }
                   },
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,

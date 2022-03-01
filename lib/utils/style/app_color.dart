@@ -17,5 +17,18 @@ const color14 = Color(0xffEDFAF7);
 const color15 = Color.fromRGBO(230, 242, 239, 1);
 const color16 = Color.fromRGBO(237, 250, 247, 1);
 const color17 = Color(0xffF5B462);
+const color18 = Color(0xff030102);
+const color19 = Color(0xff3A3A3A);
+const color20 = Color(0xffCC7341);
+const color21 = Color(0xffF9DF7B);
+const color22 = Color(0xffF6D877);
+const color23 = Color(0xffE0E0E0);
+const color24 = Color(0xff303030);
+const color25 = Color(0xffEE4D2D);
+const color26 = Color(0xffFEB650);
+const color27 = Color(0xffC3793B);
+const color28 = Color(0xffF2F2F2);
+const color29 = Color(0xffF6F6F6);
+const color30 = Color(0xffE5E5E5);
 
 

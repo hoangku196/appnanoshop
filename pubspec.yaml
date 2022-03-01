@@ -78,6 +78,8 @@ flutter:
     - assets/images/image_icon/
     - assets/images/account_page_icon/
     - assets/images/menu_icon/
+    - assets/images/detail_product_icon/
+    - assets/images/toolbar_icon/
 
   # To add assets to your application, add an assets section, like this:
   # assets:

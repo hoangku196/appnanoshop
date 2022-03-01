@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nanoshop_app/utils/assets_source/assets_source.dart';
+import 'package:nanoshop_app/utils/global_key/global_key_app.dart';
+import 'package:nanoshop_app/utils/router/home_page_router.dart';
 import 'package:nanoshop_app/utils/router/router_app.dart';
 import 'package:nanoshop_app/utils/style/app_color.dart';
 import 'package:nanoshop_app/utils/style/text_style_app.dart';
@@ -25,8 +27,9 @@ class HomePageAppBar extends StatelessWidget implements PreferredSizeWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 InkWell(
-                  onTap: (){
-                    Get.toNamed(RouterApp.menuScreen);
+                  onTap: () {
+                    Get.toNamed(HomePageRouter.menu,
+                        id: GlobalKeyApp.idHomeAppNav);
                   },
                   child: Image.asset(AssetsSource.appBarIconMenu),
                 ),
@@ -36,7 +39,10 @@ class HomePageAppBar extends StatelessWidget implements PreferredSizeWidget {
                 Expanded(
                   child: InkWell(
                     onTap: () {
-                      Get.toNamed(RouterApp.searchProductFragment);
+                      Get.toNamed(
+                        HomePageRouter.search,
+                        id: GlobalKeyApp.idHomeAppNav,
+                      );
                     },
                     child: Container(
                       decoration: BoxDecoration(

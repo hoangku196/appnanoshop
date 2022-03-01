@@ -5,8 +5,8 @@ import 'package:nanoshop_app/utils/style/text_style_app.dart';
 import 'package:nanoshop_app/widgets/dash/dash.dart';
 import 'package:nanoshop_app/widgets/expanded_section/expanded_section.dart';
 
-class CategoryFragment extends StatelessWidget {
-  const CategoryFragment({Key? key}) : super(key: key);
+class CategoryPage extends StatelessWidget {
+  const CategoryPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

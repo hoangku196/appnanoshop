@@ -4,6 +4,10 @@ final List dummyImage = [
   DummyImage(url: AssetsSource.dummyImage),
   DummyImage(url: AssetsSource.dummyImage),
   DummyImage(url: AssetsSource.dummyImage),
+  DummyImage(url: AssetsSource.dummyImage),
+  DummyImage(url: AssetsSource.dummyImage),
+  DummyImage(url: AssetsSource.dummyImage),
+  DummyImage(url: AssetsSource.dummyImage),
 ];
 
 class DummyImage {

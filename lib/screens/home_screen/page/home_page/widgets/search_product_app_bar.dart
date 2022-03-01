@@ -3,12 +3,12 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:nanoshop_app/utils/assets_source/assets_source.dart';
+import 'package:nanoshop_app/utils/global_key/global_key_app.dart';
 import 'package:nanoshop_app/utils/style/app_color.dart';
 import 'package:nanoshop_app/widgets/margins/main_margin.dart';
 
-class CategoryProductFragmentAppBar extends StatelessWidget
-    implements PreferredSizeWidget {
-  const CategoryProductFragmentAppBar({
+class SearchAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const SearchAppBar({
     Key? key,
   }) : super(key: key);
 
@@ -25,11 +25,16 @@ class CategoryProductFragmentAppBar extends StatelessWidget
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 InkWell(
-                  onTap: (){
-                    Get.back();
+                  onTap: () {
+                    try {
+                      Get.keys[GlobalKeyApp.idHomeAppNav]!.currentState!
+                          .maybePop();
+                    } catch (e) {}
                   },
                   child: Icon(
-                    Platform.isAndroid ? Icons.arrow_back : Icons.arrow_back_ios,
+                    Platform.isAndroid
+                        ? Icons.arrow_back
+                        : Icons.arrow_back_ios,
                     color: Colors.white,
                   ),
                 ),
@@ -40,7 +45,6 @@ class CategoryProductFragmentAppBar extends StatelessWidget
                   child: Container(
                     child: TextField(
                       autofocus: true,
-
                       decoration: InputDecoration(
                         fillColor: Colors.white,
                         filled: true,

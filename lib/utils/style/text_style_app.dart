@@ -38,3 +38,8 @@ final TextStyle textStyle6 = GoogleFonts.nunito(
   fontSize: 14,
   color: color12,
 );
+
+final TextStyle textStyle7 = GoogleFonts.nunito(
+  fontWeight: FontWeight.w900,
+  fontSize: 10,
+);

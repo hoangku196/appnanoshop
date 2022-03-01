@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:nanoshop_app/utils/global_key/global_key_app.dart';
 import 'package:nanoshop_app/utils/style/app_color.dart';
 import 'package:nanoshop_app/utils/style/text_style_app.dart';
 import 'package:nanoshop_app/widgets/margins/margin_bottom20.dart';
@@ -27,7 +28,7 @@ class TitleWithRouteContainer extends StatelessWidget {
         ),
         InkWell(
           onTap: (){
-            Get.toNamed(route);
+            Get.toNamed(route, id: GlobalKeyApp.idHomeAppNav);
           },
           child: Text(
             'Xem tất cả',
